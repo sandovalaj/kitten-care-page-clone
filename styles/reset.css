@@ -1,0 +1,16 @@
+:root { /* Standard kumabaga, very useful gago. 20px == 1.2 kaya parang basis na sya */
+    font: 20px/1.2 "Roboto", san-serif;
+}
+
+body,
+body * {
+    margin: unset;
+    box-sizing: unset;
+    padding: unset;
+    font-size: unset;
+    color: unset;
+    text-decoration: unset;
+    text-align: justify;
+}
+
+/* Removes browser default settings */
