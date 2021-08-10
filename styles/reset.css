@@ -1,9 +1,9 @@
-:root { /* Standard kumabaga, very useful gago. 20px == 1.2 kaya parang basis na sya */
+:root { /* Standard kumabaga, very useful gago. */
     font: 20px/1.2 "Roboto", san-serif;
 }
 
 body,
-body * {
+body * { /* All elements under body */
     margin: unset;
     box-sizing: unset;
     padding: unset;
@@ -11,6 +11,7 @@ body * {
     color: unset;
     text-decoration: unset;
     text-align: justify;
+    background-color: rgb(245, 245, 245);
 }
 
 /* Removes browser default settings */
