@@ -1,13 +1,15 @@
-
+/* Layout */
 .main { /* CENTERING A DIV AHAKDOG */
     display: grid;
     grid-template-columns: 1fr 9in 4in 1fr; /* fr as in Fractioning sections of webpage */
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     padding: 0.5in 0;
+    grid-gap: 0.5in;
 }
 
-.main :not(.side-navigation, .main-title) { /* All other divs */
+.main .main-body { /* All other divs */
     grid-column: 2 / 3;
+    grid-row: 2 / 4;
 }
 
 .main .main-title {
@@ -18,13 +20,12 @@
 .main .side-navigation{
     grid-column: 3 / 4;
     grid-row: 2 / 3;
-    margin-left: 0.5in;
 }
 
-.main div {
-    margin: 0.5in 0;
-}
+/* -- END of Layout --*/
 
+
+/* Response to Screensize */
 @media (max-width: 13in) { /* Responsive Web Design, media query, adapts accordingly */
     .main { grid-template-columns: 5% 81% 9% 5%; }
     :root { font-size: 18px; }
@@ -33,12 +34,68 @@
 @media (max-width: 5.0in) {
     :root { font-size: 16px; }
 }
-/* -- END -- */
+/* -- END of Response to Screensize -- */
 
+
+/* Side Navigation Bar */
 .side-navigation {
-    list-style-type: none;
     outline: 1px solid rgb(194, 194, 194);
 }
+
+.side-navigation * {
+    transition: 0.3s;
+}
+
+.side-navigation-header {
+    text-align: center;
+    margin: unset;
+    padding: 0.3rem;
+}
+
+.side-navigation-header:hover {
+    color:rgb(185, 0, 0);
+}
+
+.side-navigation-body  {
+    background-color:rgb(185, 0, 0);
+    padding: 1.8rem;
+}
+
+.side-navigation-body * {
+    font-size: 0.9rem;
+    background-color:rgb(185, 0, 0);
+    color: white;
+}
+
+.active {
+    outline: 2px solid white;
+}
+
+.side-navigation-body a:hover, li:hover {
+    outline: 2px solid white;
+}
+
+.side-navigation li, .down-button {
+    padding: 0.5rem 1rem;
+}
+
+.side-navigation li:not(last-child) {
+    margin-bottom: 1rem;
+}
+
+.down-button:not(last-child) {
+    margin-right: 1rem;
+}
+
+.side-navigation-download-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+}
+
+
+/* -- END of Side Navigation Bar -- */
+
 
 /* -- List Styles -- */
 li { list-style-position: inside; } /* Para nasa loob yung numbers or bullets sa margin */
@@ -46,9 +103,13 @@ li { list-style-position: inside; } /* Para nasa loob yung numbers or bullets sa
 .list-header {
     margin-bottom: 1rem; /* Relative to HTML ROOT font size (em relative to font size of parent ata) */
 }
-/* -- END -- */
+/* -- END of List Styles -- */
+
 
 /* -- Other Text Styles -- */
+.main-body div {
+    margin-bottom: 0.5in;
+}
 
 h3, p:not(:last-child), ul:not(:last-child), ol:not(:last-child) {  /* Last child as in pinakahuli in the partition */
     margin-bottom: 2.4rem; 
@@ -100,6 +161,7 @@ p, ol, ul {
 }
 /* -- END -- */
 
+
 /* -- Table Styles -- */
 .table {
     display: unset;
@@ -139,4 +201,4 @@ td > p {
 .third-col {
     width: 60%;
 }
-/* -- END -- */
+/* -- END of Table Styles -- */
