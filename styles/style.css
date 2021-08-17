@@ -1,41 +1,46 @@
+
+
 /* Layout */
 .main { /* CENTERING A DIV AHAKDOG */
     display: grid;
-    grid-template-columns: 1fr 9in 4in 1fr; /* fr as in Fractioning sections of webpage */
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 0.5fr [c-body] 7.4fr [c-side-navi] 3.51fr [end] 0.5fr; 
+    grid-template-rows: [title] auto [r-body-start] auto [r-side-navi] auto [r-side-navi-end] auto [r-body-end] auto [r-side-navi-small] auto;
     padding: 0.5in 0;
     grid-gap: 0.5in;
 }
 
-.main .main-body { /* All other divs */
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
-}
-
 .main .main-title {
-    grid-column: 2 / 4;
-    grid-row: 1 / 2;
+    grid-column: c-body / end;
+    grid-row: title;
 }
 
-.main .side-navigation{
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
+.main .main-body { 
+    grid-column: c-body;
+    grid-row: r-body-start / r-body-end;
 }
 
+.main .side-navigation {
+    grid-column: c-side-navi;
+    grid-row: r-side-navi / [r-side-navi-end];
+}
 /* -- END of Layout --*/
 
-
-/* Response to Screensize */
-@media (max-width: 13in) { /* Responsive Web Design, media query, adapts accordingly */
-    .main { grid-template-columns: 5% 81% 9% 5%; }
-    :root { font-size: 18px; }
+@media (max-width: 13in) {
+    :root { font-size: 20px; }
+    .main .main-body { grid-column: c-body / end; }
+    .main .side-navigation { grid-column: c-body / end; grid-row: r-body-end / r-side-navi-small; }
 }
 
-@media (max-width: 5.0in) {
-    :root { font-size: 16px; }
-}
-/* -- END of Response to Screensize -- */
 
+.links-list * {
+    margin: unset;
+    padding: unset;
+    font-size: 0.8rem;
+}
+
+.main-title {
+    padding-top: ;
+}
 
 /* Side Navigation Bar */
 .side-navigation {
@@ -71,7 +76,7 @@
     outline: 2px solid white;
 }
 
-.side-navigation-body a:hover, li:hover {
+.side-navigation-body a:hover, .side-navigation-body li:hover {
     outline: 2px solid white;
 }
 
@@ -92,8 +97,6 @@
     flex-direction: row;
     justify-content: center;    
 }
-
-
 /* -- END of Side Navigation Bar -- */
 
 
@@ -153,7 +156,6 @@ p, ol, ul {
 
 .link {
     color: darkcyan;
-    text-decoration: underline;
 }
 
 .link:hover {
